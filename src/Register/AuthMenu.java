@@ -1,6 +1,5 @@
 package Register;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +20,7 @@ public class AuthMenu {
                     System.out.println("Enter your password : ");
                     String password = scanner.nextLine();
                     for(User user : users){
-                        if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
+                        if(user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)){
                             System.out.println("Hi " + userName + " !");
                             UserManager.saveUsers(users);
                             return;
@@ -37,7 +36,8 @@ public class AuthMenu {
                     User user = new User(UserName, Password); //make new user
                     users.add(user);
                     UserManager.saveUsers(users);
-                    System.out.println("--------------------\nUser has been saved successfully\n--------------------");
+                    System.out.println("--------------------\n" +
+                    "User has been saved successfully\nyou must login\n--------------------");
                     UserManager.saveUsers(users);
                     break;
                 case 3:

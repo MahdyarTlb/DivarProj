@@ -10,7 +10,8 @@ public class UserManager {
     public static void saveUsers(List<User> users){
         try(FileWriter Writer = new FileWriter(FILE_PATH,true)){
             for(User user : users){
-                Writer.write(user.getUserName() + "," + user.getPassword() + "," + user.getScore());
+                Writer.write(user.getUserName() + "," + user.getPassword() + ","
+                + user.getScore() + System.lineSeparator());
             }
         } catch(IOException e){e.toString();}
     }
