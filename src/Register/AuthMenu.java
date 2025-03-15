@@ -22,7 +22,6 @@ public class AuthMenu {
                     for(User user : users){
                         if(user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)){
                             System.out.println("Hi " + userName + " !");
-                            UserManager.saveUsers(users);
                             return;
                         }
                         System.out.println("Your userName or password is incorrect! try again");
@@ -33,16 +32,26 @@ public class AuthMenu {
                     String UserName = scanner.nextLine();
                     System.out.print("Enter your Password : ");
                     String Password = scanner.nextLine();
-                    User user = new User(UserName, Password); //make new user
-                    users.add(user);
-                    UserManager.saveUsers(users);
-                    System.out.println("--------------------\n" +
-                    "User has been saved successfully\nyou must login\n--------------------");
-                    UserManager.saveUsers(users);
+                    //بررسی تکراری نبودن
+                    boolean IsTaken = false;
+                    for(User user : users){
+                        if(UserName.equals(user.getUserName())){
+                            IsTaken = true;
+                            break;
+                        }
+                    }
+                    if (IsTaken) {
+                        System.out.println("This name is already taken!");
+                    } else {
+                        User user = new User(UserName, Password); //make new user
+                        users.add(user);
+                        UserManager.saveUsers(users);
+                        System.out.println("--------------------\n" +
+                                "User has been saved successfully\nyou must login\n--------------------");
+                    }
                     break;
                 case 3:
                     System.out.println("Goodbye!");
-                    UserManager.saveUsers(users);
                     break;
 
             }
