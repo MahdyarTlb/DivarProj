@@ -1,8 +1,8 @@
 package Register;
 
 import java.io.*;
-import java.io.FileWriter;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 public class UserManager {
     private static final String FILE_PATH =  "Users.txt";
 
