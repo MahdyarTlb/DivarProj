@@ -1,4 +1,4 @@
-package Register;
+package com.Divarproject.Register;
 
 public class User {
     String UserName;

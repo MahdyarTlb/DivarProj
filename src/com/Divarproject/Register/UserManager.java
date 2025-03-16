@@ -1,4 +1,4 @@
-package Register;
+package com.Divarproject.Register;
 
 import java.io.*;
 import java.util.List;
