@@ -11,7 +11,7 @@ public class AdManager {
     private static final String File_Path = "Ads.txt";
 
     public static void saveAds(List<Ad> ads){
-        try(FileWriter fw = new FileWriter(File_Path)){
+        try(FileWriter fw = new FileWriter(File_Path, false)){
             for(Ad ad : ads){
                 String adData = "";
                 switch(ad.getType()){

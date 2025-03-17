@@ -1,29 +1,96 @@
 package com.Divarproject.Register;
 
+import com.Divarproject.Ads.Ad;
+import com.Divarproject.Ads.AdManager;
+import com.Divarproject.Ads.CarAd;
+
 import java.util.List;
 import java.util.Scanner;
+
 import static java.lang.System.exit;
 
 public class AuthMenu {
     public static void main(String[] args) {
         List<User> users = UserManager.LoadUsers();
-        Scanner scanner =  new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        while(true){
+        while (true) {
             System.out.println("1. login \n2. register \n3. exit");
             System.out.print("Enter your choice : ");
             int choice = scanner.nextInt();
             scanner.nextLine(); //clear buffer
-            switch(choice){
+            switch (choice) {
                 case 1:
                     System.out.println("Enter your username : ");
                     String userName = scanner.nextLine();
                     System.out.println("Enter your password : ");
                     String password = scanner.nextLine();
-                    for(User user : users){
-                        if(user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)){
+                    for (User user : users) {
+                        if (user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)) {
                             System.out.println("Hi " + userName + " !");
-                            return;
+                            List<Ad> ads = AdManager.loadAds(users);
+
+                                //Ads Managing
+                            {
+                                while (true) {
+                                    System.out.println("1.Create Ad \n2.Show Ads \n3.exit ");
+                                    System.out.println("Enter your choice : ");
+                                    int Choice = scanner.nextInt();
+                                    scanner.nextLine();
+                                    switch (Choice) {
+                                        case 1:
+                                            System.out.println("1.Car");
+                                            System.out.println("Enter Category: ");
+                                            int category = scanner.nextInt();
+                                            scanner.nextLine();
+                                            switch (category) {
+                                                case 1:
+                                                    System.out.println("Enter name: ");
+                                                    String name = scanner.nextLine();
+                                                    System.out.println("Enter description: ");
+                                                    String description = scanner.nextLine();
+                                                    System.out.println("Enter price: ");
+                                                    int price = scanner.nextInt();
+                                                    scanner.nextLine();
+                                                    System.out.println("Enter contact : ");
+                                                    String contact = scanner.nextLine();
+                                                    System.out.println("Enter Image Path : ");
+                                                    String imagePath = scanner.nextLine();
+                                                    System.out.println("Enter Productionage : ");
+                                                    int productionage = scanner.nextInt();
+                                                    System.out.println("Enter mileage : ");
+                                                    int mileage = scanner.nextInt();
+                                                    System.out.println("Enter hasAccident : ");
+                                                    boolean hasAccident = (scanner.nextInt() == 0) ? false : true;
+                                                    scanner.nextLine();
+
+                                                    User loggedInUser = UserManager.FindUserByUserName(users, userName);
+
+                                                    CarAd carAd = new CarAd(name, description, price,
+                                                            contact, loggedInUser, imagePath, productionage,
+                                                            mileage, hasAccident);
+                                                    ads.add(carAd);
+                                                    AdManager.saveAds(ads);
+                                                    System.out.println("Ad successfully created");
+                                                default:
+                                                    System.out.println("Invalid choice");
+                                                    continue;
+                                            }
+                                        case 2:
+                                            System.out.println("All Ads:");
+                                            for (Ad ad : ads) {
+                                                ad.displayDetails();
+                                                System.out.println("-------------------------------");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Good Bye " + userName + " !");
+                                            AdManager.saveAds(ads);
+                                            exit(0);
+                                    }
+                                }
+                            }
+
                         }
                         System.out.println("Your userName or password is incorrect! try again");
                     }
@@ -35,8 +102,8 @@ public class AuthMenu {
                     String Password = scanner.nextLine();
                     //بررسی تکراری نبودن
                     boolean IsTaken = false;
-                    for(User user : users){
-                        if(UserName.equals(user.getUserName())){
+                    for (User user : users) {
+                        if (UserName.equals(user.getUserName())) {
                             IsTaken = true;
                             break;
                         }
