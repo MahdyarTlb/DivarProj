@@ -44,28 +44,30 @@ public class AdManager {
 
                 if(parts.length < 1) continue; // if line is blank
 
-                String Type = parts[0];
+                String Typestr = parts[0];
                 User owner = UserManager.FindUserByUserName(users, parts[5]);
 
                 if (owner == null) continue; // if user isn't correct
-
+                Ad.AdType Type = Ad.AdType.valueOf(Typestr.toUpperCase());
                 switch(Type){
-                    case "car":
-                        if(parts.length >= 9){
+                    case CAR:
+                        if(parts.length >= 10){
                             CarAd carAd = new CarAd(parts[1], parts[2], Integer.parseInt(parts[3])
                                     ,parts[4], owner, parts[6], Integer.parseInt(parts[7]),
-                                    Integer.parseInt(parts[8]), Boolean.parseBoolean(parts[9]), Ad.AdType.CAR
+                                    Integer.parseInt(parts[8]), Boolean.parseBoolean(parts[9])
                             );
                             ads.add(carAd);
                         }
+                        break;
+
+                    default:
+                        System.out.println("Invalid Ad Type");
+                        continue;
                 }
             }
-
-
-        } catch (FileNotFoundException e) {
-            System.out.println(e.toString());;
         } catch (IOException e) {
-            System.out.println(e.toString());;
+            System.out.println(e.toString());
         }
+        return ads;
     }
 }

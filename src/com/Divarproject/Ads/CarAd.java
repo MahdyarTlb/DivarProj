@@ -10,8 +10,8 @@ public class CarAd extends Ad{
 
     //Constructor
     public CarAd(String Name, String Description, int Price, String Contact, User Owner, String ImagePath,
-                 int Productionage, int Mileage, boolean HasAccident, AdType Type){
-        super(Name,Description,Price,Contact,Owner,ImagePath,Type);
+                 int Productionage, int Mileage, boolean HasAccident){
+        super(Name,Description,Price,Contact,Owner,ImagePath,AdType.CAR);
         this.Productionage = Productionage;
         this.Mileage = Mileage;
         this.HasAccident = HasAccident;
