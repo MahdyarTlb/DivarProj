@@ -31,6 +31,15 @@ public class UserManager {
         return users;
     }
 
+    //find user by username
+    public static User FindUserByUserName(List<User> users,  String userName){
+        for(User user : users){
+            if(user.getUserName().equals(userName)){
+                return user;
+            }
+        }
+        return null;
+    }
 
 
 

@@ -2,6 +2,7 @@ package com.Divarproject.Register;
 
 import java.util.List;
 import java.util.Scanner;
+import static java.lang.System.exit;
 
 public class AuthMenu {
     public static void main(String[] args) {
@@ -52,7 +53,7 @@ public class AuthMenu {
                     break;
                 case 3:
                     System.out.println("Goodbye!");
-                    break;
+                    exit(0);
 
             }
         }
