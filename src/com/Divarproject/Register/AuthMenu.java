@@ -3,14 +3,30 @@ package com.Divarproject.Register;
 import com.Divarproject.Ads.Ad;
 import com.Divarproject.Ads.AdManager;
 import com.Divarproject.Ads.CarAd;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
-public class AuthMenu {
+public class AuthMenu extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/login.fxml")); // لود FXML
+        Parent root = loader.load(); // بارگذاری UI
+
+        primaryStage.setTitle("صفحه ورود");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
+        launch(args);
         List<User> users = UserManager.LoadUsers();
         Scanner scanner = new Scanner(System.in);
 

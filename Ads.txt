@@ -1,2 +1,0 @@
-Car,Pride,its clean!,200000,091222333,Mahd,??,2,3,true
-Car,quick,Auli,2,0987,Mahd,rtt,1,2,true

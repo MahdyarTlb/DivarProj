@@ -8,7 +8,7 @@ public class UserManager {
 
     //save users data
     public static void saveUsers(List<User> users){
-        try(FileWriter Writer = new FileWriter(FILE_PATH,true)){
+        try(FileWriter Writer = new FileWriter(FILE_PATH,false)){
             for(User user : users){
                 Writer.write(user.getUserName() + "," + user.getPassword() + ","
                 + user.getScore() + System.lineSeparator());
