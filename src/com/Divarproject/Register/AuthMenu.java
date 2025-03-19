@@ -20,7 +20,7 @@ public class AuthMenu extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/login.fxml")); // لود FXML
         Parent root = loader.load(); // بارگذاری UI
 
-        primaryStage.setTitle("صفحه ورود");
+        primaryStage.setTitle("Divar");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

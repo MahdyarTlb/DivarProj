@@ -55,10 +55,15 @@ public class DashboardController {
 
     @FXML
     private void handleShowAds(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("showAds.fxml")); // باز کردن صفحه نمایش آگهی‌ها
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("showAds.fxml"));
+        Parent root = loader.load();
+
+        // گرفتن کنترلر و ارسال لیست آگهی‌ها
+        showAdsController sa = loader.getController();
+        sa.setAds(ads, loggedInUser);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
