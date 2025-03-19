@@ -1,15 +1,14 @@
 package com.Divarproject.GUI;
 
+import com.Divarproject.Ads.Ad;
+import com.Divarproject.Ads.AdManager;
 import com.Divarproject.Register.User;
 import com.Divarproject.Register.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -41,8 +40,13 @@ public class LoginController {
         String username = email.getText();
         String userpass = password.getText();
 
+        if (username.isEmpty() || userpass.isEmpty()) {
+            status.setText("لطفا نام کاربری و رمز عبور را وارد کنید!");
+            return;
+        }
+
         for (User user : users) {
-            if (user.getUserName().equals(username) && user.getPassword().equals(userpass)) {
+            if (user.getUserName().equalsIgnoreCase(username) && user.getPassword().equals(userpass)) {
                 status.setText("ورود موفقیت‌آمیز!");
                 loadDashboard(username);  // ارسال نام کاربر به داشبورد
                 return;
@@ -82,7 +86,28 @@ public class LoginController {
 
             // گرفتن کنترلر داشبورد و ارسال نام کاربر
             DashboardController dashboardController = loader.getController();
-            dashboardController.setUser(username);
+            User loggedInUser = users.stream()
+                    .filter(user -> user.getUserName().equalsIgnoreCase(username))
+                    .findFirst()
+                    .orElse(null);
+            if (loggedInUser == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("خطای ورود");
+                alert.setContentText("کاربر با مشخصات مذکور یافت نشد!\n لطفا ابتدا ثبت نام کنید.");
+                alert.showAndWait();
+                System.err.println("خطا: کاربر پیدا نشد!");
+                return;
+            }
+
+            // بارگذاری لیست آگهی‌ها
+            List<Ad> ads = AdManager.loadAds(users); // اطمینان از بارگذاری آگهی‌ها
+            if (ads == null) {
+                System.err.println("خطا: لیست آگهی‌ها خالی است!");
+                return;
+            }
+
+
+            dashboardController.setUser(loggedInUser, ads);
 
             Stage stage = (Stage) email.getScene().getWindow();
             stage.setScene(new Scene(root));

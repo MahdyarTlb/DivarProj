@@ -1,0 +1,9 @@
+Car,ص,ث,3,2,علی,ب,1,2,false
+Car,w,q,2,3,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\2.jpg,2,1,false
+Car,wq,qwq,1,1,Mahd,C:\Users\USER\Videos\Captures\DivarProj – DashboardController.java 28_12_1403 08_35_42 ب.ظ.png,1,1,true
+Car,ضص,ضص,2,1,علی,,2,1,true
+Car,ضص,ضص,2,1,علی,,2,1,true
+Car,ضص,ضص,2,1,علی,C:\Users\USER\Videos\Captures\nationalgeographic-pictures-of-the-year-20247-6750b035ac7288a1edf98033.jpeg @ 72% (RGB_8) 26_12_1403 02_43_00 ب.ظ.png,2,1,true
+Car,ewew,wqeqe,2,1,Mahd,,1,1,true
+Car,,,3,3,علی,,3,3,true
+Car,f,wf,3,2,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\3d-car-with-simple-background.jpg,2,1,true

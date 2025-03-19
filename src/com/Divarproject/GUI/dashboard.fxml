@@ -21,7 +21,10 @@
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="exit" layoutX="149.0" layoutY="197.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="27.0" prefWidth="152.0" text="خروج" textAlignment="CENTER" textFill="RED" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Button fx:id="exit" layoutX="149.0" layoutY="197.0"
+              mnemonicParsing="false" onAction="#handleExit"
+              prefHeight="27.0" prefWidth="152.0" text="خروج"
+              textAlignment="CENTER" textFill="RED" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
