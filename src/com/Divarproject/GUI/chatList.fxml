@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2e2e2e;" stylesheets="@../Styles.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.ChatListController">
+    <!-- متن بالای صفحه -->
+    <Label layoutX="253.0" layoutY="15.0" styleClass="label-title" text="لیست چت‌ها" AnchorPane.leftAnchor="253.0"
+           AnchorPane.topAnchor="15.0"/>
+
+    <!-- دکمه بازگشت -->
+    <Button layoutX="518.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="42.0"
+            prefWidth="94.0" styleClass="button-exit" text="بازگشت" AnchorPane.rightAnchor="12.0"
+            AnchorPane.topAnchor="4.0"/>
+
+    <!-- ScrollPane برای نمایش چت‌ها -->
+    <ScrollPane styleClass="scroll-bar" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;"
+                AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+                AnchorPane.topAnchor="50">
+        <VBox styleClass="ad-box" fx:id="chatsContainer" alignment="TOP_CENTER" prefHeight="188.0" prefWidth="579.0" spacing="10"
+              style="-fx-padding: 10; -fx-background-color: #3c3c3c; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+    </ScrollPane>
+</AnchorPane>

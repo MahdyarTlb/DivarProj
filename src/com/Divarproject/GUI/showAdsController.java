@@ -30,39 +30,52 @@ public class showAdsController {
     public void setAds(List<Ad> ads, User loggedInUser) {
         this.ads = ads;
         this.loggedInUser = loggedInUser;
-        adsContainer.getChildren().clear();
 
-        if(adsContainer == null) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (adsContainer == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("خطا");
-            alert.setContentText("عدم مقداردهی adscontainer");
+            alert.setContentText("عدم مقداردهی adsContainer");
             alert.showAndWait();
             return;
         }
 
-
+        adsContainer.getChildren().clear();
         double yOffset = 50;
+
         for (Ad ad : ads) {
             HBox adBox = new HBox(10);
             adBox.setSpacing(10);
-            adBox.setStyle("-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1px;");
+            adBox.getStyleClass().add("ad-box");
+            adBox.setOnMouseClicked(e -> {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("adDetails.fxml"));
+                    Parent root = loader.load();
 
-            //Image
+                    adDetailsController adDetailsController = loader.getController();
+                    adDetailsController.setAdAndUserData(ad, loggedInUser, ads);
+
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException ex) {
+                    System.err.println("خطا در بارگذاری صفحه جزئیات آگهی: " + ex.getMessage());
+                }
+            });
+
+            // نمایش تصویر
             ImageView imageView = null;
             try {
                 String imagePath = ad.getImagePath();
                 Image image;
                 if (imagePath != null && !imagePath.isEmpty()) {
-                    imagePath = "file:" + imagePath; // اضافه کردن پیشوند file:
+                    imagePath = "file:" + imagePath;
                     image = new Image(imagePath);
                 } else {
-                    // استفاده از تصویر پیش‌فرض
                     image = new Image(getClass().getResourceAsStream("/com/Divarproject/images/default.png"));
                 }
                 imageView = new ImageView(image);
             } catch (Exception e) {
-                System.err.println("خطا در بارگذاری تصویر آگهی " + ad.getName() + ": " + e.getMessage());
-                // استفاده از تصویر پیش‌فرض در صورت خطای بارگذاری
+                System.err.println("خطا در بارگذاری تصویر آگهی: " + e.getMessage());
                 try {
                     Image defaultImage = new Image(getClass().getResourceAsStream("/com/Divarproject/images/default.png"));
                     imageView = new ImageView(defaultImage);
@@ -77,10 +90,9 @@ public class showAdsController {
                 imageView.setPreserveRatio(true);
             }
 
-            //info
+            // نمایش اطلاعات آگهی
             Label title = new Label(ad.getName());
             Label price = new Label(ad.getPrice() + " تومان");
-
             adBox.getChildren().addAll(imageView, title, price);
 
             AnchorPane.setTopAnchor(adBox, yOffset);
@@ -95,18 +107,6 @@ public class showAdsController {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        // بارگذاری صفحه داشبورد
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-        Parent root = loader.load();
-
-        // گرفتن کنترلر داشبورد و ارسال اطلاعات کاربر و آگهی‌ها
-        DashboardController dashboardController = loader.getController();
-        dashboardController.setUser(loggedInUser, ads);
-
-        // تنظیمات Stage و Scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene); // فقط صحنه (Scene) عوض می‌شود
-        stage.show();
+        NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
     }
 }

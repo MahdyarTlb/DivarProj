@@ -71,4 +71,31 @@ public class DashboardController {
     private void handleExit(ActionEvent event) {
         System.exit(0); // بستن برنامه
     }
+
+    @FXML
+    private void handleChatList(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chatList.fxml"));
+        Parent root = loader.load();
+
+        ChatListController chatListController = loader.getController();
+        chatListController.setLoggedInUser(loggedInUser);
+        chatListController.setAds(ads);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void handlemyAds(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("myAds.fxml"));
+        Parent root = loader.load();
+
+        MyAdsController myAdsController = loader.getController();
+        myAdsController.setUserData(loggedInUser, ads);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

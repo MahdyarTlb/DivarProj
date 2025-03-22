@@ -5,77 +5,69 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.addAdController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.addAdController">
    <children>
-      <Label layoutX="509.0" layoutY="27.0" text="عنوان:" textFill="#6e6e6e">
+      <Label layoutX="507.0" layoutY="16.0" text="عنوان:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="titleField" layoutX="317.0" layoutY="26.0" prefHeight="26.0" prefWidth="182.0" />
-      <Label layoutX="509.0" layoutY="74.0" text="توضیحات:" textFill="#6e6e6e">
+      <TextField fx:id="titleField" layoutX="315.0" layoutY="15.0" prefHeight="26.0" prefWidth="182.0" />
+      <Label layoutX="507.0" layoutY="68.0" text="توضیحات:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextArea fx:id="descriptionArea" layoutX="315.0" layoutY="72.0" prefHeight="200.0" prefWidth="182.0" />
-      <Label layoutX="508.0" layoutY="303.0" text="قیمت:" textFill="#6e6e6e">
+      <Label layoutX="507.0" layoutY="291.0" text="قیمت:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="priceField" layoutX="316.0" layoutY="301.0" prefHeight="26.0" prefWidth="182.0" />
+      <TextField fx:id="priceField" layoutX="315.0" layoutY="289.0" prefHeight="26.0" prefWidth="182.0" />
       <Label layoutX="508.0" layoutY="349.0" text="شماره موبایل:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="contactField" layoutX="319.0" layoutY="347.0" prefHeight="26.0" prefWidth="182.0" />
-      <Label layoutX="241.0" layoutY="27.0" text="عکس:" textFill="#6e6e6e">
+      <TextField fx:id="contactField" layoutX="315.0" layoutY="348.0" prefHeight="26.0" prefWidth="182.0" />
+      <Label layoutX="241.0" layoutY="16.0" text="تصویر:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="imagePathField" editable="false" layoutX="80.0" layoutY="26.0" prefHeight="26.0" prefWidth="153.0" />
-      <Label layoutX="241.0" layoutY="212.0" text="سال تولید:" textFill="#6e6e6e">
+      <TextField fx:id="imagePathField" editable="false" layoutX="80.0" layoutY="15.0" prefHeight="26.0" prefWidth="153.0" />
+      <Label layoutX="230.0" layoutY="234.0" text="سال تولید:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="productionYearField" layoutX="34.0" layoutY="210.0" prefHeight="26.0" prefWidth="200.0" />
-      <Label layoutX="241.0" layoutY="257.0" text="کارکرد:" textFill="#6e6e6e">
+      <TextField fx:id="productionYearField" layoutX="23.0" layoutY="232.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="230.0" layoutY="286.0" text="کارکرد:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="mileageField" layoutX="34.0" layoutY="255.0" prefHeight="26.0" prefWidth="200.0" />
-      <Label layoutX="201.0" layoutY="312.0" text="وضعیت تصادف:" textFill="#6e6e6e">
+      <TextField fx:id="mileageField" layoutX="23.0" layoutY="284.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="196.0" layoutY="327.0" text="وضعیت تصادف:" textFill="#6e6e6e">
          <font>
             <Font name="Kalameh SemiBold" size="12.0" />
          </font>
       </Label>
-      <CheckBox fx:id="hasAccidentCheckBox" layoutX="103.0" layoutY="311.0" mnemonicParsing="false" text="تصادفی" textAlignment="RIGHT">
+      <CheckBox fx:id="hasAccidentCheckBox" layoutX="174.0" layoutY="331.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="8.0" text="تصادفی" textAlignment="RIGHT">
          <font>
             <Font name="Kalameh Light" size="12.0" />
          </font>
       </CheckBox>
-      <Button fx:id="submitButton" layoutX="34.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="30.0" prefWidth="93.0" text="ثبت آگهی" textFill="#333333">
+      <Button styleClass="buttong" fx:id="submitButton" layoutX="34.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="30.0" prefWidth="93.0" text="ثبت آگهی" textFill="#333333">
+      </Button>
+      <Button fx:id="back" layoutX="134.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="78.0" text="بازگشت" textFill="#b7005b">
          <font>
             <Font name="Kalameh Regular" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="134.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="58.0" text="بازگشت" textFill="#b7005b">
-         <font>
-            <Font name="Kalameh Regular" size="12.0" />
-         </font>
+      <Button layoutY="14.0" mnemonicParsing="false" onAction="#handleImageSelection" prefHeight="22.0" prefWidth="78.0" text="انتخاب">
       </Button>
-      <Button layoutX="36.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleImageSelection" prefHeight="26.0" prefWidth="40.0" text="انتخاب">
-         <font>
-            <Font name="Kalameh Regular" size="10.0" />
-         </font>
-      </Button>
-      <ImageView fx:id="imageView" fitHeight="134.0" fitWidth="200.0"
-                 layoutX="36.0" layoutY="60.0"
-                 pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="156.0" fitWidth="266.0" layoutX="17.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="descriptionArea" alignment="TOP_RIGHT" layoutX="315.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="190.0" prefWidth="182.0" />
    </children>
 </AnchorPane>

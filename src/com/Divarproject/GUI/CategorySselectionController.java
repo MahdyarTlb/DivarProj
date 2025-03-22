@@ -55,7 +55,7 @@ public class CategorySselectionController {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        NavigationHelper.navigateToDashboard(event);
+        NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
     }
 
     // تنظیم اطلاعات کاربر و آگهی‌ها

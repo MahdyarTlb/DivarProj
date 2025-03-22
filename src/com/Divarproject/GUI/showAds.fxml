@@ -4,23 +4,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.showAdsController">
-   <!-- متن "لیست آگهی ها" -->
-   <Label text="لیست آگهی ها" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="9.0">
-      <font>
-         <Font name="Kalameh ExtraBold" size="18.0" />
-      </font>
-   </Label>
+<AnchorPane style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.showAdsController">
+    <!-- متن "لیست آگهی ها" -->
+    <Label styleClass="label-title" text="لیست آگهی ها" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="9.0">
+        <font>
+            <Font name="Kalameh ExtraBold" size="18.0"/>
+        </font>
+    </Label>
 
-   <!-- دکمه "بازگشت" -->
-   <Button mnemonicParsing="false" onAction="#handleBack" text="بازگشت" textFill="#7b7b7b" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
-      <font>
-         <Font name="Kalameh Light" size="12.0" />
-      </font>
-   </Button>
+    <!-- دکمه "بازگشت" -->
+    <Button mnemonicParsing="false" onAction="#handleBack" text="بازگشت" textFill="#7b7b7b" AnchorPane.rightAnchor="10"
+            AnchorPane.topAnchor="10">
+        <font>
+            <Font name="Kalameh Light" size="12.0"/>
+        </font>
+    </Button>
 
-   <!-- ScrollPane برای نمایش آگهی‌ها -->
-   <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="50">
-      <AnchorPane fx:id="adsContainer" />
-   </ScrollPane>
+    <!-- ScrollPane برای نمایش آگهی‌ها -->
+    <ScrollPane styleClass="scroll-bar" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="10"
+                AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="50">
+        <AnchorPane fx:id="adsContainer"/>
+    </ScrollPane>
 </AnchorPane>

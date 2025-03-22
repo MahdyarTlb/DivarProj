@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2e2e2e;" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.adDetailsController">
+    <!-- متن بالای صفحه -->
+    <Label layoutX="252.0" layoutY="14.0" styleClass="label-title" text="جزئیات آگهی" AnchorPane.leftAnchor="252.0" AnchorPane.topAnchor="14.0">
+        <font>
+            <Font name="Kalameh ExtraBold" size="18.0" />
+        </font>
+    </Label>
+
+    <!-- دکمه بازگشت -->
+    <Button mnemonicParsing="false" onAction="#handleBack" text="بازگشت" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+        <font>
+            <Font name="Kalameh Light" size="12.0" />
+        </font>
+    </Button>
+
+    <!-- ScrollPane برای نمایش جزئیات آگهی -->
+    <ScrollPane layoutY="56.0" prefHeight="342.0" prefWidth="600.0" style="-fx-background-color: transparent;" styleClass="scroll-pane">
+        <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="591.0" style="-fx-background-color: #3c3c3c; -fx-padding: 10; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <children>
+                    <!-- تصویر آگهی -->
+                    <ImageView fx:id="adImageView" fitHeight="258.0" fitWidth="306.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #4d4d4d; -fx-border-radius: 10; -fx-background-radius: 10;" />
+
+                    <!-- عنوان آگهی -->
+                    <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="356.0" layoutY="38.0" prefHeight="39.0" prefWidth="203.0" style="-fx-text-fill: white;" text="عنوان" textAlignment="RIGHT">
+                        <font>
+                            <Font name="Kalameh" size="14.0" />
+                        </font>
+                    </Label>
+
+                    <!-- قیمت آگهی -->
+                    <Label fx:id="price" alignment="CENTER_RIGHT" layoutX="356.0" layoutY="77.0" prefHeight="39.0" prefWidth="203.0" style="-fx-text-fill: #ff4d4d;" text="قیمت" textAlignment="RIGHT">
+                        <font>
+                            <Font name="Kalameh Bold" size="14.0" />
+                        </font>
+                    </Label>
+
+                    <!-- توضیحات آگهی -->
+                    <ScrollPane styleClass="scroll-bar" layoutX="363.0" layoutY="122.0" prefHeight="198.0" prefWidth="227.0">
+                  <content>
+                       <Label fx:id="descriptionLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="1000.0" prefWidth="200.0" text="توضیحات" textAlignment="RIGHT" wrapText="true">
+                           <font>
+                               <Font name="Kalameh Light" size="12.0" />
+                           </font>
+                       </Label>
+                  </content>
+                    </ScrollPane>
+
+                    <!-- دکمه تماس با کاربر -->
+                    <Button layoutX="134.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleContactUser" prefHeight="38.0" prefWidth="95.0" text="تماس با کاربر">
+                        <font>
+                            <Font name="Kalameh Bold" size="12.0" />
+                        </font>
+                    </Button>
+
+                    <!-- دکمه چت با کاربر -->
+                    <Button layoutX="33.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleChatWithUser" prefHeight="38.0" prefWidth="95.0" styleClass="buttong" text="چت با کاربر">
+                        <font>
+                            <Font name="Kalameh Bold" size="12.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+        </content>
+    </ScrollPane>
+</AnchorPane>

@@ -25,7 +25,7 @@ public class addAdController {
     @FXML
     private TextField titleField;
     @FXML
-    private TextArea descriptionArea;
+    private TextField descriptionArea;
     @FXML
     private TextField priceField;
     @FXML
@@ -106,7 +106,7 @@ public class addAdController {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        NavigationHelper.navigateToDashboard(event);
+        NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
     }
 
     @FXML

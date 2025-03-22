@@ -5,50 +5,52 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.LoginController">
-   <children>
-      <Label contentDisplay="CENTER" layoutX="164.0" layoutY="56.0" text="ورود/ثبت نام" textAlignment="CENTER">
-         <font>
-            <Font name="Kalameh ExtraBold" size="23.0" />
-         </font>
-      </Label>
-      <Label layoutX="297.0" layoutY="128.0" text="ایمیل" textAlignment="CENTER">
-         <font>
-            <Font name="Kalameh Light" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="295.0" layoutY="168.0" text="رمزعبور" textAlignment="CENTER">
-         <font>
-            <Font name="Kalameh Light" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="email" layoutX="146.0" layoutY="125.0">
-         <font>
-            <Font name="Kalameh Medium" size="12.0" />
-         </font>
-      </TextField>
-      <Button fx:id="login" alignment="TOP_CENTER" layoutX="236.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="14.0" prefWidth="94.0" text="ورود" textAlignment="CENTER" textFill="#9e2121">
-         <font>
-            <Font name="Kalameh SemiBold" size="12.0" />
-         </font>
-      </Button>
-      <Label fx:id="status" contentDisplay="CENTER" layoutX="142.0" layoutY="98.0" prefHeight="22.0" prefWidth="193.0" textAlignment="CENTER" textFill="#840000" textOverrun="CENTER_WORD_ELLIPSIS">
-         <font>
-            <Font name="Kalameh Light" size="12.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="password" layoutX="146.0" layoutY="164.0" prefHeight="30.0" prefWidth="140.0">
-         <font>
-            <Font name="Kalameh Light" size="12.0" />
-         </font></PasswordField>
-      <Button fx:id="register" alignment="TOP_CENTER" layoutX="119.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="14.0" prefWidth="94.0" text="ثبت نام" textAlignment="CENTER" textFill="#00a66e">
-         <font>
-            <Font name="Kalameh SemiBold" size="12.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="55.0" fitWidth="71.0" layoutX="197.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/images.png" />
-         </image></ImageView>
-   </children>
+<AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="550.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.LoginController">
+    <children>
+        <Label contentDisplay="CENTER" layoutX="227.0" layoutY="55.0" styleClass="label-title" text="ورود/ثبت نام" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Kalameh ExtraBold" size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="397.0" layoutY="162.0" text="ایمیل" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Kalameh Regular" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="394.0" layoutY="220.0" text="رمزعبور" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Kalameh Regular" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="email" layoutX="172.0" layoutY="151.0" prefHeight="45.0" prefWidth="205.0">
+            <font>
+                <Font name="Kalameh Medium" size="12.0" />
+            </font>
+        </TextField>
+        <Button fx:id="login" alignment="TOP_CENTER" layoutX="286.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="14.0" prefWidth="94.0" text="ورود" textAlignment="CENTER" textFill="#ecffeb">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0" />
+            </font>
+        </Button>
+        <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="107.0" prefHeight="24.0" prefWidth="470.0" textAlignment="CENTER" textFill="#ff5f5f" textOverrun="CENTER_WORD_ELLIPSIS">
+            <font>
+                <Font name="Kalameh Regular" size="9.0" />
+            </font>
+        </Label>
+        <PasswordField fx:id="password" layoutX="172.0" layoutY="209.0" prefHeight="46.0" prefWidth="206.0">
+            <font>
+                <Font name="Kalameh Light" size="12.0" />
+            </font>
+        </PasswordField>
+        <Button fx:id="register" alignment="TOP_CENTER" layoutX="169.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="14.0" prefWidth="94.0" styleClass="buttong" text="ثبت نام" textAlignment="CENTER" textFill="#00a66e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="55.0" fitWidth="74.0" layoutX="247.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/images.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>
