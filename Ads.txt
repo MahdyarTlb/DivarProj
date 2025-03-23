@@ -1,16 +1,4 @@
-Car,ص,ث,3,2,علی,ب,1,2,false
-Car,w,q,2,3,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\2.jpg,2,1,false
-Car,wq,qwq,1,1,Mahd,C:\Users\USER\Videos\Captures\DivarProj – DashboardController.java 28_12_1403 08_35_42 ب.ظ.png,1,1,true
-Car,ضص,ضص,2,1,علی,,2,1,true
-Car,ضص,ضص,2,1,علی,,2,1,true
-Car,ضص,ضص,2,1,علی,C:\Users\USER\Videos\Captures\nationalgeographic-pictures-of-the-year-20247-6750b035ac7288a1edf98033.jpeg @ 72% (RGB_8) 26_12_1403 02_43_00 ب.ظ.png,2,1,true
-Car,ewew,wqeqe,2,1,Mahd,,1,1,true
-Car,,,3,3,علی,,3,3,true
-Car,f,wf,3,2,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\3d-car-with-simple-background.jpg,2,1,true
-Car,پراید 111 نو نو ارزون میدم,پراید 111 تازه خریدم صفر ولی کار نکرده ارزون میدم 500 میلیون مفته ببر حاجی!پراید 111 تازه خریدم صفر ولی کار نکرده ارزون میدم 500 میلیون مفته ببر حاجی!پراید 111 تازه خریدم صفر ولی کار نکرده ارزون میدم 500 میلیون مفته ببر حاجی!پراید 111 تازه خریدم صفر ولی کار نکرده ارزون میدم 500 میلیون مفته ببرثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثکککککککککککککککککثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثثکککککککککککککککککککککککککککککککککککککککککککککککککککک حاجیککککککککککککککککککککککککککککککککککک حاجی!,500000000,09125252874,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\heavy-steel-machinery-army-battle-mode-generated-by-ai.jpg,1290,250000,true
-Car,kl,sad,2,12,Mahd,,1,12,true
-Car,کامیون,کامیون 2 سال استفاده شده. اگه دوست داری سود کنی باید اینو بخری.,895000000,0912 578350,shgssjfknsgjtjgbjjfti;itr,D:\mahdyar\Graphic\main\Pic\stock\Kham\naman-patel-FWOVFk9b_u0-unsplash.jpg,96,785000,true
-Car,ففغع,تلتاذرتولبتانمتنیلامخانغئ.بندایمنذئحغخعحخ عتفغ هده کنکفغم م حخ ککخعمفو.دکتکوکمکمعمکعکععغعغتمندمتتقغنئکوتعغتنعنغتعدئعکوعتنعنتننتهعهتنغعتغنمتنغدکخئکدحکذخغخاخقهخف8495دف 9خ8دهفل8ن5هف784غ7ن7زرعفمه58عزمض3عفه5رم,4560000,3465668676,shgssjfknsgjtjgbjjfti;itr,D:\mahdyar\Graphic\main\Pic\stock\Kham\rob-schreckhise-8zdEgWg5JAA-unsplash.jpg,10100,11,true
-Car,کمددیواری,,1700000,09128485378,هوپ,D:\mahdyar\Graphic\main\Pic\stock\Kham\helena-lopes-lIeqGEdvex0-unsplash.jpg,11,1393,false
-Car,تست,تستی,21,1,Mahd,,1,1,false
-Car,حمیدم,,2,1,حمید,,2,1,false
+Car,پراید 111,بسایر نو,320000000,09901990987,سعید,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
+Car,پراید 111,بسایر نو,320000000,09901990987,علی,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
+Car,پراید 111,بسایر نو,320000000,09901990987,حمید,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
+Car,بنز,خفن,2000000000,00,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\car2.png,0,2025,false

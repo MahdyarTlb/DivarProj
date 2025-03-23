@@ -4,8 +4,8 @@ import com.Divarproject.Register.User;
 
 public class CarAd extends Ad{
 
-    private int Productionage;
-    private int Mileage;
+    private int Productionage = -1; //نماد خالی بودن
+    private int Mileage = -1;
     private boolean HasAccident;
 
     //Constructor
@@ -30,4 +30,7 @@ public class CarAd extends Ad{
     public int getProductionage() {return Productionage;}
     public int getMileage() {return Mileage;}
     public boolean isHasAccident() {return HasAccident;}
+    public void  setProductionage(int Productionage) {this.Productionage = Productionage;}
+    public void setMileage(int Mileage) {this.Mileage = Mileage;}
+    public void setHasAccident(boolean HasAccident) {this.HasAccident = HasAccident;}
 }

@@ -31,6 +31,10 @@ public abstract class Ad {
     public String getImagePath(){return ImagePath;}
     public AdType getType(){return Type;}
 
+    public void setName(String Name){this.Name = Name;}
+    public void setDescription(String Description){this.Description = Description;}
+    public void setPrice(int Price){this.Price = Price;}
+    public void setImagePath(String ImagePath){this.ImagePath = ImagePath;}
     //enum for type
     public enum AdType{
         CAR;
