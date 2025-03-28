@@ -16,6 +16,7 @@
     -fx-font-family: "Kalameh(FaNum) SemiBold";
     -fx-font-size: 12px;
     -fx-cursor: hand;
+    -fx-border-radius: 20; /* انحنا بیشتر */
 }
 
 .buttong {
@@ -31,6 +32,7 @@
 /* استایل دکمه‌ها وقتی موس روی اونهاست */
 .buttong:hover {
     -fx-background-color: linear-gradient(to bottom, #14715f, #024037); /* گرادیان تیره‌تر */
+    -fx-border-radius: 20;
     -fx-text-fill: white;
     -fx-font-family: "Kalameh(FaNum) SemiBold";
     -fx-font-size: 12px;
@@ -244,5 +246,34 @@
     -fx-opacity: 0.5;
     -fx-text-fill: gray;
     -fx-alignment: baseline-right;
-    -fx-font-family: "Kalameh Light";
+    -fx-font-family: "Kalameh(FaNum) Light";
+}
+.choice-box {
+    -fx-background-color: #3c3c3c;
+    -fx-border-width: 1px;
+    -fx-border-color: #1ae3c3;
+    -fx-text-fill: white;
+    -fx-font-family: 'Kalameh';
+    -fx-font-size: 14px;
+    -fx-alignment: center-right; /* راست‌چین کردن متن */
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+/* استایل آیتم‌های داخل ChoiceBox */
+.choice-box .menu-item {
+    -fx-text-fill: white;
+    -fx-font-family: 'Kalameh';
+    -fx-font-size: 14px;
+    -fx-alignment: center-right; /* راست‌چین کردن متن */
+    -fx-border-radius: 20;
+}
+
+/* استایل پس‌زمینه DropDown */
+.choice-box .context-menu {
+    -fx-background-color: #3c3c3c;
+}
+
+/* استایل Hover آیتم‌ها در DropDown */
+.choice-box .menu-item:hover {
+    -fx-background-color: #4d4d4d;
 }

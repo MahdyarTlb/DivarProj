@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -76,14 +77,22 @@ public class ChatController {
     private void loadMessages() {
         messagesContainer.getChildren().clear(); // پاک کردن محتوای قبلی
         double yOffset = 10;
+
         for (String message : messages) {
             String[] parts = message.split(" ");
-            String senderName = parts[0];
-            String content = message.substring(senderName.length() + 2); // جدا کردن نام فرستنده از متن پیام
+            if (parts.length < 3) {
+                System.err.println("فرمت نادرست پیام: " + message);
+                continue; // اگر فرمت پیام نادرست باشه، رد کن
+            }
 
-            HBox messageBox = new HBox();
-            Label messageLabel = new Label(message);
-            // تشخیص اینکه پیام از طرف کاربر لاگین‌شده هست یا طرف مقابل
+            String senderName = parts[0];
+            String timestamp = parts[parts.length - 1].replaceAll("[()]", ""); // حذف پرانتزها از زمان
+            String content = message.substring(senderName.length() + 2, message.lastIndexOf(" ("));
+
+            VBox messageBox = new VBox();
+            Label messageLabel = new Label(content);
+            Label timestampLabel = new Label(timestamp); // زمان پیام
+
             if (message.startsWith(loggedInUser.getUserName())) {
                 // پیام کاربر لاگین‌شده
                 messageLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Kalameh'; -fx-font-size: 14px;" +
@@ -93,23 +102,22 @@ public class ChatController {
             } else {
                 // پیام طرف مقابل
                 messageLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Kalameh'; -fx-font-size: 14px;" +
-                        "-fx-padding: 10; -fx-background-color: #a51542; -fx-border-radius: 10; -fx-background-radius: 10;" +
-                        "-fx-alignment: center-left;");
+                        "-fx-padding: 10; -fx-background-color: #a51542; -fx-border-radius: 10; -fx-background-radius: 10;");
                 messageBox.setAlignment(Pos.CENTER_LEFT);
                 AnchorPane.setLeftAnchor(messageBox, 10.0);
             }
+
+            // تنظیم استایل زمان پیام
+            timestampLabel.setStyle("-fx-font-size: 10px; -fx-opacity: 0.5; -fx-text-fill: gray; -fx-alignment: center-right;");
+
+            // اضافه کردن متن و زمان به VBox
+            messageBox.getChildren().addAll(messageLabel, timestampLabel);
+
+            // تنظیم موقعیت پیام
             AnchorPane.setTopAnchor(messageBox, yOffset);
-            messageBox.getChildren().add(messageLabel);
-            messageBox.getStyleClass().add("ad-box2");
             messagesContainer.getChildren().add(messageBox);
 
-            yOffset += 55;
-
-            scrollPane.setVvalue(1.0);
-
-            // اضافه کردن زمان پیام
-            String timestamp = parts[parts.length - 1]; // فرض بر اینکه زمان پیام آخرین قسمت پیام هست
-            timestampLabel.setText(timestamp);
+            yOffset += 70; // فاصله بین پیام‌ها
         }
     }
 

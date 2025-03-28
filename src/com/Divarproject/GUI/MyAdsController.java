@@ -102,11 +102,11 @@ public class MyAdsController {
     // دکمه افزودن آگهی جدید
     @FXML
     private void handleAddAd(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("addAd.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Category_selection.fxml"));
         Parent root = loader.load();
 
-        addAdController ac = loader.getController();
-        ac.setUserData(loggedInUser, allAds);
+        CategorySselectionController ac = loader.getController();
+        ac.setUserData(loggedInUser);
 
         Stage current = (Stage) ((Node) event.getSource()).getScene().getWindow();
         NavigationHelper.navigateToScene(current, root);

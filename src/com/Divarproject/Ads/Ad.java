@@ -36,10 +36,23 @@ public abstract class Ad {
     public void setPrice(int Price){this.Price = Price;}
     public void setImagePath(String ImagePath){this.ImagePath = ImagePath;}
     //enum for type
-    public enum AdType{
-        CAR, ANIMAL;
-    }
+    public enum AdType {
+        CAR("وسایل نقلیه"),
+        ANIMAL("حیوانات خانگی");
 
+        private final String displayName;
+
+        // Constructor
+        AdType(String displayName) {
+            this.displayName = displayName;
+        }
+
+        // Override toString() to return the display name
+        @Override
+        public String toString() {
+            return displayName; // نمایش نام فارسی
+        }
+    }
     //ShowDetails
     public abstract void displayDetails();
 

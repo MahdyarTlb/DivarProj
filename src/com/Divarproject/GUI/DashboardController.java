@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -36,7 +38,22 @@ public class DashboardController {
 
         loadDashboard();
     }
+    // مدیریت خروج کاربر
+    @FXML
+    private void handleLogout() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("تأیید خروج");
+        alert.setHeaderText(null);
+        alert.setContentText("آیا مطمئن هستید که می‌خواهید از حساب کاربری خارج شوید؟");
 
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // خروج از حساب کاربری
+                Stage stage = (Stage) User.getScene().getWindow();
+                NavigationHelper.navigateToLogin(stage);
+            }
+        });
+    }
     private void loadDashboard() {
         List<Rating> ratings = DataManager.getInstance().getRatings();
 

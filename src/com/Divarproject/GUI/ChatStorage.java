@@ -5,47 +5,41 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ChatStorage {
 
-    // مسیر فایل بر اساس نام کاربران
+    // مسیر فایل بر اساس نام کاربران (ترتیب الفبایی)
     private static String getFilePath(String user1, String user2) {
-        return "chat_" + user1 + "_" + user2 + ".txt";
+        String sortedUsers = (user1.compareTo(user2) < 0) ? user1 + "_" + user2 : user2 + "_" + user1;
+        return "chat_" + sortedUsers + ".txt";
     }
 
-    // ذخیره پیام‌ها به صورت دوطرفه
+    // ذخیره پیام‌ها (فقط یک فایل برای هر جفت کاربر)
     public static void saveMessages(String sender, String receiver, ObservableList<String> messages) {
-        // ذخیره برای جفت کاربر (sender -> receiver)
-        String filePath1 = getFilePath(sender, receiver);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
+        String filePath = getFilePath(sender, receiver);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String message : messages) {
                 writer.write(message);
                 writer.newLine();
             }
         } catch (IOException e) {
-            System.err.printf("خطای ذخیره سازی چت های %s بر روی %s.", sender, receiver);
+            System.err.println("خطا در ذخیره پیام‌ها: " + e.getMessage());
         }
-        // ذخیره برای جفت کاربر (receiver -> sender)
-        String filePath2 = getFilePath(receiver, sender);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath2))) {
-            for (String message : messages) {
-                writer.write(message);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            System.err.println("خطا در ذخیره پیام‌ها (receiver -> sender): " + e.getMessage());
-        }
-
     }
 
     // بارگذاری پیام‌ها
     public static ObservableList<String> loadMessages(String user1, String user2) {
         String filePath = getFilePath(user1, user2);
         ObservableList<String> messages = FXCollections.observableArrayList();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return messages; // اگر فایل وجود نداشته باشه، لیست خالی برگردون
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 messages.add(line);
@@ -53,6 +47,7 @@ public class ChatStorage {
         } catch (IOException e) {
             System.err.println("خطا در بارگذاری پیام‌ها: " + e.getMessage());
         }
+
         return messages;
     }
 

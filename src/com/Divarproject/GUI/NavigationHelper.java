@@ -78,4 +78,14 @@ public class NavigationHelper {
 
         blurTimelineOut.play(); // شروع انیمیشن خروج
     }
+    public static void navigateToLogin(Stage stage) {
+        try {
+            FXMLLoader loader = new FXMLLoader(NavigationHelper.class.getResource("login.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("صفحه لاگین");
+            navigateToScene(stage, root);
+        } catch (IOException e) {
+            System.err.println("خطا در بارگذاری صفحه لاگین: " + e.getMessage());
+        }
+    }
 }

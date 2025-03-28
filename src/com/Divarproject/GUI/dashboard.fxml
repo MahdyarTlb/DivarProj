@@ -2,49 +2,24 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.DashboardController">
     <children>
-        <Label layoutX="273.0" layoutY="26.0" styleClass="label-title" text="داشبورد">
-            <font>
-                <Font name="KalamehFaNum ExtraBold" size="15.0" />
-            </font>
+        <Label layoutX="263.0" layoutY="26.0" style="-fx-font-size: 24px" styleClass="label-title" text="داشبورد">
         </Label>
-        <Button fx:id="add" layoutX="112.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleAddAd" prefHeight="80.0" prefWidth="160.0" styleClass="buttong" text="ثبت آگهی">
-            <font>
-                <Font name="Kalameh SemiBold" size="12.0" />
-            </font>
+        <Button fx:id="add" layoutX="112.0" layoutY="99.0" mnemonicParsing="false" onAction="#handleAddAd" prefHeight="90.0" prefWidth="180.0" style="-fx-font-size: 14px" styleClass="buttong" text="ثبت آگهی">
         </Button>
-        <Button fx:id="show" layoutX="328.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleShowAds" prefHeight="80.0" prefWidth="160.0" text="نمایش آگهی ها">
-            <font>
-                <Font name="Kalameh SemiBold" size="32.0" />
-            </font>
+        <Button fx:id="show" layoutX="309.0" layoutY="99.0" mnemonicParsing="false" onAction="#handleShowAds" prefHeight="90.0" prefWidth="180.0" style="-fx-font-size: 14px" text="نمایش آگهی ها">
         </Button>
         <Button fx:id="exit" layoutX="225.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="31.0" prefWidth="152.0" styleClass="button-exit" text="خروج" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
-            <font>
-                <Font name="Kalameh SemiBold" size="12.0" />
-            </font>
         </Button>
-        <Label fx:id="User" layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="288.0">
-            <font>
-                <Font name="Kalameh Medium" size="12.0" />
-            </font>
+        <Label fx:id="User" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleLogout" prefHeight="24.0" prefWidth="288.0">
         </Label>
-        <Button fx:id="chat" layoutX="112.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleChatList" prefHeight="80.0" prefWidth="160.0" styleClass="button" text="چت ها">
-            <font>
-                <Font name="Kalameh SemiBold" size="12.0" />
-            </font>
+        <Button fx:id="chat" layoutX="112.0" layoutY="210.0" mnemonicParsing="false" onAction="#handleChatList" prefHeight="90.0" prefWidth="180.0" style="-fx-font-size: 14px" styleClass="button" text="چت ها">
         </Button>
-        <Button fx:id="myAds" layoutX="328.0" layoutY="226.0" mnemonicParsing="false" onAction="#handlemyAds" prefHeight="80.0" prefWidth="160.0" styleClass="buttong" text="آگهی های من">
-            <font>
-                <Font name="Kalameh SemiBold" size="12.0" />
-            </font>
+        <Button fx:id="myAds" layoutX="309.0" layoutY="210.0" mnemonicParsing="false" onAction="#handlemyAds" prefHeight="90.0" prefWidth="180.0" style="-fx-font-size: 14px" styleClass="buttong" text="آگهی های من">
         </Button>
         <Label fx:id="User1" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="467.0" layoutY="14.0" prefHeight="24.0" prefWidth="112.0" text="امتیاز شما: " textAlignment="RIGHT">
-            <font>
-                <Font name="Kalameh Medium" size="12.0" />
-            </font>
         </Label>
     </children>
 </AnchorPane>
