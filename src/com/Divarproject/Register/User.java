@@ -28,4 +28,17 @@ public class User {
     public void setScore(int Score){
         this.Score = Score;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        User user = (User) obj;
+        return UserName.equals(user.UserName); // مقایسه بر اساس نام کاربری
+    }
+
+    @Override
+    public int hashCode() {
+        return UserName.hashCode(); // هش بر اساس نام کاربری
+    }
 }

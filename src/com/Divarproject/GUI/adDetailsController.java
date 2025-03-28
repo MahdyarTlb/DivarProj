@@ -31,6 +31,9 @@ public class adDetailsController {
     @FXML
     private Label descriptionLabel;
 
+    @FXML
+    private Label daste;
+
     private Ad selectedAd; // آگهی انتخاب‌شده
     private User loggedInUser; // کاربر لاگین‌شده
     private List<Ad> ads; // لیست آگهی‌ها
@@ -58,6 +61,15 @@ public class adDetailsController {
         name.setText(selectedAd.getName());
         price.setText((selectedAd.getPrice()) + " تومان");
         descriptionLabel.setText(selectedAd.getDescription());
+
+        String a = "";
+        //DasteBandi
+        if(selectedAd.getType() != Ad.AdType.CAR){
+            a = "حیوانات خانگی";
+        } else if (selectedAd.getType() == Ad.AdType.CAR) {
+            a = "وسایل نقلیه";
+        }
+        daste.setText("آگهی ها/" + a);
     }
 
     // دکمه بازگشت
@@ -70,8 +82,7 @@ public class adDetailsController {
         sa.setAds(ads, loggedInUser);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     // دکمه تماس با کاربر
@@ -95,8 +106,6 @@ public class adDetailsController {
         chatController.setAds(ads);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-
+        NavigationHelper.navigateToScene(stage, root);
     }
 }

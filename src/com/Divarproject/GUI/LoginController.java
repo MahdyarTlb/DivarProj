@@ -110,7 +110,7 @@ public class LoginController {
             dashboardController.setUser(loggedInUser, ads);
 
             Stage stage = (Stage) email.getScene().getWindow();
-            stage.setScene(new Scene(root));
+            NavigationHelper.navigateToScene(stage, root);
         } catch (Exception e) {
             status.setText("خطا در بارگذاری داشبورد!");
         }

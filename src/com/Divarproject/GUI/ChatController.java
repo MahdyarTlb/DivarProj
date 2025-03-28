@@ -1,6 +1,9 @@
 package com.Divarproject.GUI;
 
 import com.Divarproject.Ads.Ad;
+import com.Divarproject.Data.DataManager;
+import com.Divarproject.Rate.Rating;
+import com.Divarproject.Rate.RatingManager;
 import com.Divarproject.Register.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +31,7 @@ public class ChatController {
             this.ads = ads;
         }
     }
+
     @FXML
     private AnchorPane messagesContainer;
 
@@ -40,6 +44,9 @@ public class ChatController {
     @FXML
     private ScrollPane scrollPane;
 
+    @FXML
+    private Label Rating;
+
     private ObservableList<String> messages = FXCollections.observableArrayList(); // لیست پیام‌ها
 
     // تنظیم اطلاعات کاربران
@@ -48,6 +55,10 @@ public class ChatController {
         this.seller = seller;
 
         usernameLabel.setText(seller.getUserName());
+
+        List<Rating> ratings = DataManager.getInstance().getRatings();
+        double averageRating = RatingManager.getAverageRating(seller, ratings);
+        Rating.setText("امتیاز: " + String.format("%.1f", averageRating));
 
         // بارگذاری پیام‌های قبلی از فایل
         messages.addAll(ChatStorage.loadMessages(loggedInUser.getUserName(), seller.getUserName()));
@@ -115,32 +126,59 @@ public class ChatController {
         NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
     }
 
-    private boolean flag = false;
-
-    // دکمه امتیاز دادن
     @FXML
     private void rateUser() {
-        if (!flag) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("امتیاز دادن");
-            alert.setHeaderText(null);
-            alert.setContentText("آیا می‌خواهید به این کاربر امتیاز دهید؟");
+        List<Rating> ratings = DataManager.getInstance().getRatings();
 
-            alert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
-                    flag = true;
-                    // منطق امتیاز دادن
-                    Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert1.setTitle(null);
-                    alert1.setContentText("کاربر " + seller.getUserName() + " امتیاز دریافت کرد.");
-                    alert1.showAndWait();
+        ChoiceBox<Integer> ratingChoiceBox = new ChoiceBox<>();
+        ratingChoiceBox.getItems().addAll(1, 2, 3, 4, 5);
+        ratingChoiceBox.setValue(5); // مقدار پیش‌فرض
+
+        // ایجاد Alert
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("امتیازدهی به کاربر");
+        alert.setHeaderText("لطفاً امتیاز خود را به کاربر " + seller.getUserName() + " وارد کنید:");
+        alert.getDialogPane().setContent(ratingChoiceBox);
+
+        // نمایش Alert و دریافت نتیجه
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                int score = ratingChoiceBox.getValue();
+                try {
+                    // اضافه کردن امتیاز جدید
+                    Rating newRating = new Rating(loggedInUser, seller, score);
+                    ratings.add(newRating);
+
+                    // ذخیره امتیازات
+                    RatingManager.saveRating(ratings);
+
+                    // نمایش پیام موفقیت
+                    showInfoAlert("موفقیت", "امتیاز شما با موفقیت ثبت شد.");
+
+                    //update
+                    double averageRating = RatingManager.getAverageRating(seller, ratings);
+                    Rating.setText("امتیاز: " + String.format("%.1f", averageRating));
+
+                } catch (IllegalArgumentException e) {
+                    showErrorAlert("خطا", e.getMessage());
                 }
-            });
-        } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("زرنگی!؟");
-            alert.setContentText("نمیتونی به یه کاربر دو  بار امتیاز بدی!\n یدونه بستشه:)");
-            alert.showAndWait();
-        }
+            }
+        });
     }
+    // نمایش پیام موفقیت
+    private void showInfoAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    // نمایش پیام خطا
+    private void showErrorAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
 }

@@ -1,15 +1,10 @@
 package com.Divarproject.GUI;
 
-import javafx.event.ActionEvent;
-import com.Divarproject.Ads.Ad;
 import com.Divarproject.Ads.AdManager;
-import com.Divarproject.Ads.CarAd;
+import com.Divarproject.Ads.AnimalAd;
 import com.Divarproject.Register.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,8 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-
-public class addAdController {
+public class AddAnimalAdController {
     @FXML
     private TextField titleField;
     @FXML
@@ -33,26 +27,22 @@ public class addAdController {
     @FXML
     private TextField imagePathField;
     @FXML
-    private TextField productionYearField;
+    private TextField animalTypeField;
     @FXML
-    private TextField mileageField;
+    private TextField ageField;
     @FXML
-    private CheckBox hasAccidentCheckBox;
-    @FXML
-    private Button submitButton;
+    private CheckBox isVaccinatedCheckBox;
     @FXML
     private ImageView imageView;
 
-    private User loggedInUser; // کاربر لاگین شده
-    private List<Ad> ads; // لیست آگهی‌ها
+    private User loggedInUser;
+    private List<com.Divarproject.Ads.Ad> ads;
 
-    // تنظیم اطلاعات کاربر و آگهی‌ها
-    public void setUserData(User user, List<Ad> ads) {
+    public void setUserData(User user, List<com.Divarproject.Ads.Ad> ads) {
         this.loggedInUser = user;
         this.ads = ads;
     }
 
-    //  متد ثبت آگهی فقط برای دسته بندی ماشین
     @FXML
     private void handleSubmit(ActionEvent event) {
         try {
@@ -62,14 +52,14 @@ public class addAdController {
             int price = Integer.parseInt(priceField.getText());
             String contact = contactField.getText();
             String imagePath = imagePathField.getText();
-            int productionYear = Integer.parseInt(productionYearField.getText());
-            int mileage = Integer.parseInt(mileageField.getText());
-            boolean hasAccident = hasAccidentCheckBox.isSelected();
+            String animalType = animalTypeField.getText();
+            int age = Integer.parseInt(ageField.getText());
+            boolean isVaccinated = isVaccinatedCheckBox.isSelected();
 
             // ساخت آگهی جدید
-            CarAd newAd = new CarAd(
+            AnimalAd newAd = new AnimalAd(
                     title, description, price, contact, loggedInUser, imagePath,
-                    productionYear, mileage, hasAccident
+                    animalType, age, isVaccinated
             );
             if(ads == null){
                 System.err.println("عدم مقداردهی صحیح ads!");
@@ -79,25 +69,17 @@ public class addAdController {
             ads.add(newAd);
             AdManager.saveAds(ads); // ذخیره آگهی در فایل
 
-            Alert alert =  new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("ایجاد آگهی");
             alert.setHeaderText(null);
             alert.setContentText("آگهی شما با موفقیت ثبت و تایید شد!");
             alert.showAndWait();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-            Parent root = loader.load();
-
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setUser(loggedInUser, ads);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            NavigationHelper.navigateToScene(stage, root);
+            NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
 
         } catch (NumberFormatException | IOException e) {
-            // مدیریت خطاها
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("لطفاً اطلاعات عددی را صحیح وارد کنید!");
+            alert.setContentText("لطفاً اطلاعات را صحیح وارد کنید!");
             alert.showAndWait();
         }
     }

@@ -3,6 +3,7 @@ package com.Divarproject.GUI;
 import java.util.List;
 
 import com.Divarproject.Ads.Ad;
+import com.Divarproject.Data.DataManager;
 import com.Divarproject.Register.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,14 @@ import java.io.IOException;
 public class CategorySselectionController {
 
     private User loggedInUser; // کاربر لاگین شده
-    private List<Ad> ads; // لیست آگهی‌ها
+    private List<Ad> ads;
+
+    // تنظیم اطلاعات کاربر و آگهی‌ها
+    public void setUserData(User user) {
+        this.loggedInUser = user;
+        List<Ad> ads = DataManager.getInstance().getAds();
+        this.ads = ads;
+    }
 
     private Stage stage;
     private Scene scene;
@@ -39,6 +47,9 @@ public class CategorySselectionController {
     private Button back;
 
     @FXML
+    private Button animal1;
+
+    @FXML
     private void handleCarAd(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addAd.fxml"));
         Parent root = loader.load();
@@ -48,9 +59,7 @@ public class CategorySselectionController {
         addadController.setUserData(loggedInUser, ads); // ارسال کاربر و لیست آگهی‌ها
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     @FXML
@@ -58,10 +67,17 @@ public class CategorySselectionController {
         NavigationHelper.navigateToDashboard(event, loggedInUser, ads);
     }
 
-    // تنظیم اطلاعات کاربر و آگهی‌ها
-    public void setUserData(User user, List<Ad> ads) {
-        this.loggedInUser = user;
-        this.ads = ads;
+    @FXML
+    private void handleAnimalAd(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdAnimalAdd.fxml"));
+        Parent root = loader.load();
+
+        AddAnimalAdController animalAdController = loader.getController();
+        animalAdController.setUserData(loggedInUser, ads);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        NavigationHelper.navigateToScene(stage, root);
     }
+
 
 }

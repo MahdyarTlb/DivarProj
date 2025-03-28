@@ -15,10 +15,11 @@
     -fx-text-fill: white;
     -fx-font-family: "Kalameh(FaNum) SemiBold";
     -fx-font-size: 12px;
+    -fx-cursor: hand;
 }
 
 .buttong {
-    -fx-background-color: linear-gradient(to bottom, #3eb6a2, #005848); /* گرادیان رنگ */
+    -fx-background-color: linear-gradient(to bottom, #2bac97, #0f7864); /* گرادیان رنگ */
     -fx-text-fill: white;
     -fx-font-family: "Kalameh Bold";
     -fx-font-size: 12px;
@@ -33,6 +34,7 @@
     -fx-text-fill: white;
     -fx-font-family: "Kalameh(FaNum) SemiBold";
     -fx-font-size: 12px;
+    -fx-cursor: hand;
 }
 
 .button-exit {
@@ -49,6 +51,7 @@
 .button-exit:hover {
     -fx-border-color: #e63939; /* رنگ حاشیه تیره‌تر */
     -fx-text-fill: #ffffff; /* رنگ متن تیره‌تر */
+    -fx-cursor: hand;
 }
 
 /* استایل تکست‌باکس‌ها و تکست‌فیلد‌ها */
@@ -70,11 +73,21 @@
     -fx-border-width: 2px;
 }
 
+.text-area:hover, .text-field:hover{
+    -fx-border-width: 3px;
+    -fx-font-family: "Kalameh(FaNum) SemiBold";
+}
+
 /* استایل برچسب‌ها */
 .label {
     -fx-text-fill: white;
     -fx-font-family: "Kalameh";
     -fx-font-size: 14px;
+}
+
+.label:hover{
+    -fx-font-family: "Kalameh(FaNum) SemiBold";
+    -fx-cursor: hand;
 }
 
 /* استایل برچسب‌های قیمت */
@@ -108,13 +121,28 @@
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 10;
-    -fx-cursor: hand; /* تغییر مکان‌نما به دست */
 }
 
 /* استایل آگهی‌ها وقتی موس روی اونهاست */
 .ad-box:hover {
     -fx-background-color: #4d4d4d; /* رنگ تیره‌تر */
     -fx-border-color: #ff4d4d; /* حاشیه قرمز */
+    -fx-cursor: hand;
+}
+
+.ad-boxnew {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+/* استایل آگهی‌ها وقتی موس روی اونهاست */
+.ad-boxnew:hover {
+    -fx-background-color: #4d4d4d; /* رنگ تیره‌تر */
+    -fx-border-color: #1ae3c3; /* حاشیه قرمز */
 }
 
 .ad-box2 {
@@ -126,7 +154,6 @@
 /* استایل آگهی‌ها وقتی موس روی اونهاست */
 .ad-box2:hover {
     -fx-background-color: #4d4d4d; /* رنگ تیره‌تر */
-    -fx-cursor: hand; /* تغییر مکان‌نما به دست */
 }
 
 .ad-box3 {
@@ -136,13 +163,12 @@
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 10;
-    -fx-cursor: hand; /* تغییر مکان‌نما به دست */
 }
 
 /* استایل آگهی‌ها وقتی موس روی اونهاست */
 .ad-box3:hover {
     -fx-background-color: #4d4d4d; /* رنگ تیره‌تر */
-    -fx-border-color: #024037; /* حاشیه قرمز */
+    -fx-border-color: #1ae3c3; /* حاشیه قرمز */
 }
 
 /* استایل توضیحات آگهی */
@@ -187,6 +213,7 @@
 /* استایل برچسب‌های چت وقتی موس روی اونهاست */
 .chat-item:hover {
     -fx-background-color: #4d4d4d;
+    -fx-cursor: help;
 }
 /* استایل برای ScrollPane */
 .scroll-bar {

@@ -1,4 +1,4 @@
 Car,پراید 111,بسایر نو,320000000,09901990987,سعید,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
 Car,پراید 111,بسایر نو,320000000,09901990987,علی,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
-Car,پراید 111,بسایر نو,320000000,09901990987,حمید,D:\mahdyar\Graphic\main\Pic\stock\AI images\view-car-running-high-speed-city.jpg,1390,320000,false
 Car,بنز,خفن,2000000000,00,Mahd,D:\mahdyar\Graphic\main\Pic\stock\AI images\car2.png,0,2025,false
+Animal,  امیر تنها,امیر تنهاست,0,0,Mahd,D:\mahdyar\Graphic\main\Pic\stock\nature\Animals.Cat @stock_drive.jpg,گوربا,1,true

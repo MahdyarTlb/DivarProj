@@ -3,6 +3,9 @@ package com.Divarproject.Register;
 import com.Divarproject.Ads.Ad;
 import com.Divarproject.Ads.AdManager;
 import com.Divarproject.Ads.CarAd;
+import com.Divarproject.Data.DataManager;
+import com.Divarproject.Rate.Rating;
+import com.Divarproject.Rate.RatingManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,8 +29,17 @@ public class AuthMenu extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
         List<User> users = UserManager.LoadUsers();
+        List<Ad> ads = AdManager.loadAds(users);
+        List<Rating> ratings = RatingManager.loadRatings(users);
+
+        DataManager.getInstance().setUsers(users);
+        DataManager.getInstance().setAds(ads);
+        DataManager.getInstance().setRatings(ratings);
+
+        launch(args);
+
+
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -44,9 +56,7 @@ public class AuthMenu extends Application {
                     for (User user : users) {
                         if (user.getUserName().equalsIgnoreCase(userName) && user.getPassword().equals(password)) {
                             System.out.println("Hi " + userName + " !");
-                            List<Ad> ads = AdManager.loadAds(users);
-
-                                //Ads Managing
+                            //Ads Managing
                             {
                                 while (true) {
                                     System.out.println("1.Create Ad \n2.Show Ads \n3.exit ");

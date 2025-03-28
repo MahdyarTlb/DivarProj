@@ -43,9 +43,9 @@
                     </Label>
 
                     <!-- توضیحات آگهی -->
-                    <ScrollPane styleClass="scroll-bar" layoutX="363.0" layoutY="122.0" prefHeight="198.0" prefWidth="227.0">
+                    <ScrollPane layoutX="363.0" layoutY="122.0" prefHeight="198.0" prefWidth="227.0" styleClass="scroll-bar">
                   <content>
-                       <Label fx:id="descriptionLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="1000.0" prefWidth="200.0" text="توضیحات" textAlignment="RIGHT" wrapText="true">
+                       <Label fx:id="descriptionLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="196.0" prefWidth="200.0" text="توضیحات" textAlignment="RIGHT" wrapText="true">
                            <font>
                                <Font name="Kalameh Light" size="12.0" />
                            </font>
@@ -70,4 +70,9 @@
             </AnchorPane>
         </content>
     </ScrollPane>
+   <Label fx:id="daste" layoutX="36.0" layoutY="18.0" styleClass="label" text="دسته بندی">
+      <font>
+         <Font name="Kalameh ExtraBold" size="18.0" />
+      </font>
+   </Label>
 </AnchorPane>

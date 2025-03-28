@@ -4,37 +4,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane style="-fx-background-color: #2e2e2e" prefHeight="250.0" prefWidth="450.0" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.CategorySselectionController">
-   <children>
-      <Label styleClass="label-title" layoutX="101.0" layoutY="39.0" text="دسته بندی مربوطه را انتخاب نمائید:">
-         <font>
-            <Font name="Kalameh ExtraBold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="car" layoutX="98.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCarAd" prefHeight="50.0" prefWidth="114.0" text="وسایل نقلیه" textFill="#ae3636">
-         <font>
-            <Font name="Kalameh Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="electro" layoutX="237.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" text="لوازم الکترونیکی" textFill="#ae3636">
-         <font>
-            <Font name="Kalameh Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="house" layoutX="98.0" layoutY="171.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" text="خانه و آشپزخانه" textFill="#ae3636">
-         <font>
-            <Font name="Kalameh Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="animal" layoutX="237.0" layoutY="171.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" text="حیوانات خانگی" textFill="#ae3636">
-         <font>
-            <Font name="Kalameh Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="back" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="14.0" prefWidth="69.0" text="بازگشت" textAlignment="CENTER" textFill="#7e7e7e">
-         <font>
-            <Font name="Kalameh Medium" size="10.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.CategorySselectionController">
+    <children>
+        <Label layoutX="176.0" layoutY="46.0" styleClass="label-title" text="دسته بندی مربوطه را انتخاب نمائید:">
+            <font>
+                <Font name="Kalameh ExtraBold" size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="car" styleClass="buttong" layoutX="143.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleCarAd"
+                prefHeight="70.0" prefWidth="150.0" text="وسایل نقلیه" textFill="#ae3636">
+            <font>
+                <Font name="Kalameh Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="electro" layoutX="321.0" layoutY="129.0" mnemonicParsing="false" prefHeight="70.0"
+                prefWidth="150.0" text="لوازم الکترونیکی" textFill="#ae3636">
+            <font>
+                <Font name="Kalameh Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="house" layoutX="143.0" layoutY="223.0" mnemonicParsing="false" prefHeight="70.0"
+                prefWidth="150.0" text="خانه و آشپزخانه" textFill="#ae3636">
+            <font>
+                <Font name="Kalameh Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="animal1" styleClass="buttong" layoutX="321.0" layoutY="223.0" mnemonicParsing="false" prefHeight="70.0"
+                prefWidth="150.0" text="حیوانات خانگی" textFill="#ae3636" onAction="#handleAnimalAd">
+            <font>
+                <Font name="Kalameh Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="back" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBack"
+                prefHeight="14.0" prefWidth="69.0" text="بازگشت" textAlignment="CENTER" textFill="#7e7e7e">
+            <font>
+                <Font name="Kalameh Medium" size="10.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

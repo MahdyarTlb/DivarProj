@@ -1,6 +1,9 @@
 package com.Divarproject.GUI;
 
 import com.Divarproject.Ads.Ad;
+import com.Divarproject.Data.DataManager;
+import com.Divarproject.Rate.Rating;
+import com.Divarproject.Rate.RatingManager;
 import com.Divarproject.Register.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,21 +23,26 @@ public class DashboardController {
     private User loggedInUser;
     private List<Ad> ads;
 
-
     @FXML
     private Label User;
+
+    @FXML
+    private Label User1;
 
     public void setUser(User user, List<Ad> ads) {
         this.loggedInUser = user;
         this.ads = ads;
-
         User.setText("خوش آمدی " + loggedInUser.getUserName() + "!");
+
+        loadDashboard();
     }
 
+    private void loadDashboard() {
+        List<Rating> ratings = DataManager.getInstance().getRatings();
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+        double averageRating = RatingManager.getAverageRating(loggedInUser, ratings);
+        User1.setText("امتیاز شما: " + String.format("%.1f", averageRating));
+    }
 
     @FXML
     private void handleAddAd(ActionEvent event) throws IOException {
@@ -44,13 +52,11 @@ public class DashboardController {
 
         // گرفتن کنترلر فرم انتخاب دسته‌بندی
         CategorySselectionController categorySelectionController = loader.getController();
-        categorySelectionController.setUserData(loggedInUser, ads); // ارسال کاربر و لیست آگهی‌ها
+        categorySelectionController.setUserData(loggedInUser); // ارسال کاربر و لیست آگهی‌ها
 
         // تنظیمات Stage
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     @FXML
@@ -63,8 +69,7 @@ public class DashboardController {
         sa.setAds(ads, loggedInUser);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     @FXML
@@ -82,8 +87,7 @@ public class DashboardController {
         chatListController.setAds(ads);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     @FXML
@@ -95,7 +99,6 @@ public class DashboardController {
         myAdsController.setUserData(loggedInUser, ads);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 }

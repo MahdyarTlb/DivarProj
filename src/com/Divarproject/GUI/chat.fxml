@@ -3,24 +3,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2e2e2e;" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.ChatController">
+<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #2e2e2e;" stylesheets="@../Styles.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.ChatController">
     <!-- متن بالای صفحه -->
-    <Label style="-fx-alignment: center;" styleClass="label-title" text="چت با کاربر" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" />
+    <Label layoutX="10.0" layoutY="9.0" style="-fx-alignment: center;" styleClass="label-title" text="چت با کاربر"
+           AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0"/>
     <!-- دکمه بازگشت -->
-    <Button layoutX="495.6" layoutY="4.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="38.0" prefWidth="94.0" styleClass="button-exit" text="بازگشت" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="4.0" />
+    <Button layoutX="495.6" layoutY="4.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="38.0"
+            prefWidth="94.0" styleClass="button-exit" text="بازگشت" AnchorPane.rightAnchor="10.0"
+            AnchorPane.topAnchor="4.0"/>
 
     <!-- ScrollPane برای نمایش پیام‌ها -->
-    <ScrollPane styleClass="scroll-bar" fx:id="scrollPane" fitToWidth="true" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="80" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="50">
-        <AnchorPane fx:id="messagesContainer" prefHeight="266.0" prefWidth="579.0" style="-fx-padding: 10; -fx-background-color: #3c3c3c; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="label" />
+    <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-background-color: transparent;" styleClass="scroll-bar"
+                AnchorPane.bottomAnchor="80" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+                AnchorPane.topAnchor="50">
+        <AnchorPane fx:id="messagesContainer" prefHeight="266.0" prefWidth="579.0"
+                    style="-fx-padding: 10; -fx-background-color: #3c3c3c; -fx-border-radius: 10; -fx-background-radius: 10;"
+                    />
     </ScrollPane>
 
     <!-- ناحیه ارسال پیام -->
-    <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+    <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10">
 
         <!-- دکمه امتیاز دادن -->
-        <Button onAction="#rateUser" styleClass="buttong" text="امتیاز دادن" />
-        <TextField fx:id="messageInput" alignment="CENTER_RIGHT" promptText="پیام خود را بنویسید..." styleClass="text-field" HBox.hgrow="ALWAYS" />
-        <Button onAction="#sendMessage" prefHeight="38.0" prefWidth="63.0" styleClass="button" text="ارسال" textAlignment="CENTER" />
+        <Button onAction="#rateUser" styleClass="buttong" text="امتیاز دادن"/>
+        <TextField fx:id="messageInput" alignment="CENTER_RIGHT" promptText="پیام خود را بنویسید..."
+                   styleClass="text-field" HBox.hgrow="ALWAYS"/>
+        <Button onAction="#sendMessage" prefHeight="38.0" prefWidth="63.0" styleClass="button" text="ارسال"
+                textAlignment="CENTER"/>
     </HBox>
-    <Label fx:id="usernameLabel" layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="225.0" text="نام کاربر" />
+    <Label fx:id="usernameLabel" layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="225.0" text="نام کاربر"/>
+    <Label fx:id="Rating" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="320.0" prefHeight="24.0"
+           prefWidth="82.0"/>
 </AnchorPane>

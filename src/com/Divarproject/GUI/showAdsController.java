@@ -55,8 +55,7 @@ public class showAdsController {
                     adDetailsController.setAdAndUserData(ad, loggedInUser, ads);
 
                     Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
+                    NavigationHelper.navigateToScene(stage, root);
                 } catch (IOException ex) {
                     System.err.println("خطا در بارگذاری صفحه جزئیات آگهی: " + ex.getMessage());
                 }

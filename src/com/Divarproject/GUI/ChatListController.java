@@ -74,8 +74,7 @@ public class ChatListController implements Initializable {
         chatController.setAds(ads);
 
         Stage stage = (Stage) chatsContainer.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     // دکمه بازگشت
@@ -88,7 +87,6 @@ public class ChatListController implements Initializable {
         dashboardController.setUser(loggedInUser, ads);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 }

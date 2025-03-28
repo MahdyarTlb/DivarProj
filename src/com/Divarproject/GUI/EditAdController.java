@@ -121,19 +121,18 @@ public class EditAdController {
                 alert.setContentText("با موفقیت آگهی شما ویرایش شد.");
                 alert.showAndWait();
 
-                    // بازگشت به صفحه آگهی‌های من
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("myAds.fxml"));
-                    Parent root = loader.load();
+                // بازگشت به صفحه آگهی‌های من
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("myAds.fxml"));
+                Parent root = loader.load();
 
-                    MyAdsController myAdsController = loader.getController();
-                    myAdsController.setUserData(loggedInUser, ads);
+                MyAdsController myAdsController = loader.getController();
+                myAdsController.setUserData(loggedInUser, ads);
 
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } else {
-                    showAlert("خطا", "نوع آگهی نامعتبر است.");
-                }
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                NavigationHelper.navigateToScene(stage, root);
+            } else {
+                showAlert("خطا", "نوع آگهی نامعتبر است.");
+            }
         }
     }
 
@@ -181,8 +180,7 @@ public class EditAdController {
         myAdsController.setUserData(loggedInUser, ads);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(stage, root);
     }
 
     // دکمه انتخاب تصویر

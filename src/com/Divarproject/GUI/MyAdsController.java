@@ -109,11 +109,7 @@ public class MyAdsController {
         ac.setUserData(loggedInUser, allAds);
 
         Stage current = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        current.close();
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        NavigationHelper.navigateToScene(current, root);
     }
 
     // دکمه ویرایش آگهی
@@ -126,12 +122,7 @@ public class MyAdsController {
             ac.setAdAndUserData(ad, loggedInUser, allAds);
 
             Stage current = (Stage) adsContainer.getScene().getWindow();
-            current.close();
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("ویرایش آگهی");
-            stage.show();
+            NavigationHelper.navigateToScene(current, root);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -179,12 +170,7 @@ public class MyAdsController {
             ac.setAdAndUserData(ad, loggedInUser, allAds);
 
             Stage current = (Stage) adsContainer.getScene().getWindow();
-            current.close();
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("جزئیات آگهی");
-            stage.show();
+            NavigationHelper.navigateToScene(current, root);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

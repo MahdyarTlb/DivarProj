@@ -37,7 +37,7 @@ public abstract class Ad {
     public void setImagePath(String ImagePath){this.ImagePath = ImagePath;}
     //enum for type
     public enum AdType{
-        CAR;
+        CAR, ANIMAL;
     }
 
     //ShowDetails
