@@ -66,6 +66,7 @@ public class ChatListController implements Initializable {
 
     // بازکردن صفحه چت با کاربر مورد نظر
     private void openChat(String receiver) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chat.fxml"));
         Parent root = loader.load();
 

@@ -9,10 +9,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -34,6 +38,9 @@ public class ChatController {
 
     @FXML
     private AnchorPane messagesContainer;
+
+    @FXML
+    private Label timestampLabel;
 
     @FXML
     private TextField messageInput;
@@ -70,6 +77,10 @@ public class ChatController {
         messagesContainer.getChildren().clear(); // پاک کردن محتوای قبلی
         double yOffset = 10;
         for (String message : messages) {
+            String[] parts = message.split(" ");
+            String senderName = parts[0];
+            String content = message.substring(senderName.length() + 2); // جدا کردن نام فرستنده از متن پیام
+
             HBox messageBox = new HBox();
             Label messageLabel = new Label(message);
             // تشخیص اینکه پیام از طرف کاربر لاگین‌شده هست یا طرف مقابل
@@ -95,9 +106,11 @@ public class ChatController {
             yOffset += 55;
 
             scrollPane.setVvalue(1.0);
+
+            // اضافه کردن زمان پیام
+            String timestamp = parts[parts.length - 1]; // فرض بر اینکه زمان پیام آخرین قسمت پیام هست
+            timestampLabel.setText(timestamp);
         }
-
-
     }
 
     private ObservableList<String> messages1 = FXCollections.observableArrayList(); // لیست پیام‌ها
@@ -107,7 +120,9 @@ public class ChatController {
     private void sendMessage() {
         String message = messageInput.getText().trim();
         if (!message.isEmpty()) {
-            String fmessage = loggedInUser.getUserName() + ":  " + message;
+
+            String timestamp = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm"));
+            String fmessage = loggedInUser.getUserName() + ":  " + message + " (" + timestamp + ")";
             messages.add(fmessage); // اضافه کردن پیام به لیست
             messageInput.clear(); // پاک کردن فیلد ورودی
             loadMessages(); // بروزرسانی صفحه
@@ -129,7 +144,12 @@ public class ChatController {
     @FXML
     private void rateUser() {
         List<Rating> ratings = DataManager.getInstance().getRatings();
-
+        //-----------------------------------------------------------------------------------------------
+        if (RatingManager.hasRated(loggedInUser, seller, ratings)) {
+            showErrorAlert("خطا", "شما قبلاً به این کاربر امتیاز داده‌اید!");
+            return;
+        }
+        //-----------------------------------------------------------------------------------------------
         ChoiceBox<Integer> ratingChoiceBox = new ChoiceBox<>();
         ratingChoiceBox.getItems().addAll(1, 2, 3, 4, 5);
         ratingChoiceBox.setValue(5); // مقدار پیش‌فرض
@@ -165,6 +185,7 @@ public class ChatController {
             }
         });
     }
+
     // نمایش پیام موفقیت
     private void showInfoAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -238,3 +238,11 @@
 .scroll-bar .decrement-arrow {
     -fx-shape: " "; /* حذف فلش‌ها */
 }
+
+.timestamp-label {
+    -fx-font-size: 10px;
+    -fx-opacity: 0.5;
+    -fx-text-fill: gray;
+    -fx-alignment: baseline-right;
+    -fx-font-family: "Kalameh Light";
+}

@@ -19,7 +19,7 @@
     <ScrollPane styleClass="scroll-bar" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;"
                 AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
                 AnchorPane.topAnchor="50">
-        <VBox styleClass="ad-box" fx:id="chatsContainer" alignment="TOP_CENTER" prefHeight="188.0" prefWidth="579.0" spacing="10"
+        <VBox styleClass="ad-boxnew" fx:id="chatsContainer" alignment="TOP_CENTER" prefHeight="188.0" prefWidth="579.0" spacing="10"
               style="-fx-padding: 10; -fx-background-color: #3c3c3c; -fx-border-radius: 10; -fx-background-radius: 10;"/>
     </ScrollPane>
 </AnchorPane>

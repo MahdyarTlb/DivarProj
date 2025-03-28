@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -37,13 +36,11 @@ public class adDetailsController {
     private Ad selectedAd; // آگهی انتخاب‌شده
     private User loggedInUser; // کاربر لاگین‌شده
     private List<Ad> ads; // لیست آگهی‌ها
-
     // تنظیم اطلاعات آگهی و کاربر
     public void setAdAndUserData(Ad ad, User user, List<Ad> ads) {
         this.selectedAd = ad;
         this.loggedInUser = user;
         this.ads = ads;
-
         // نمایش تصویر آگهی
         if (selectedAd.getImagePath() != null && !selectedAd.getImagePath().isEmpty()) {
             String imagePath = "file:" + selectedAd.getImagePath();
@@ -98,6 +95,24 @@ public class adDetailsController {
     // دکمه چت با کاربر
     @FXML
     private void handleChatWithUser(ActionEvent event) throws IOException {
+
+        if(loggedInUser.equals(selectedAd.getOwner())) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("خطا!");
+            alert.setContentText("نمیشه با خودت چت کنی...!");
+            alert.showAndWait();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+            Parent root = loader.load();
+
+            DashboardController dc = loader.getController();
+            dc.setUser(loggedInUser, ads); // ارسال کاربر فعلی و فروشنده
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            NavigationHelper.navigateToScene(stage, root);
+            return;
+        }
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chat.fxml"));
         Parent root = loader.load();
 

@@ -62,4 +62,11 @@ public class RatingManager {
 
         return (count == 0) ? 0 : (total / count);
     }
+
+    // بررسی اینکه آیا کاربر قبلاً به فرد مورد نظر امتیاز داده یا نه
+    public static boolean hasRated(User giver, User receiver, List<Rating> ratings) {
+        return ratings.stream()
+                .anyMatch(rating -> rating.getGiver().equals(giver) && rating.getReceiver().equals(receiver));
+    }
+
 }
