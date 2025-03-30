@@ -1,6 +1,8 @@
 package com.Divarproject.GUI;
 
 import com.Divarproject.Ads.Ad;
+import com.Divarproject.Ads.AnimalAd;
+import com.Divarproject.Ads.CarAd;
 import com.Divarproject.Register.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +35,15 @@ public class adDetailsController {
     @FXML
     private Label daste;
 
+    @FXML
+    private Label Accident;
+
+    @FXML
+    private Label milage;
+
+    @FXML
+    private Label productionage;
+
     private Ad selectedAd; // آگهی انتخاب‌شده
     private User loggedInUser; // کاربر لاگین‌شده
     private List<Ad> ads; // لیست آگهی‌ها
@@ -54,19 +65,29 @@ public class adDetailsController {
             adImageView.setImage(new Image(getClass().getResourceAsStream("/com/Divarproject/images/default.png")));
         }
 
-        // نمایش اطلاعات آگهی
-        name.setText(selectedAd.getName());
-        price.setText((selectedAd.getPrice()) + " تومان");
-        descriptionLabel.setText(selectedAd.getDescription());
+        if (selectedAd.getType() == Ad.AdType.CAR) {
 
-        String a = "";
-        //DasteBandi
-        if(selectedAd.getType() != Ad.AdType.CAR){
-            a = "حیوانات خانگی";
-        } else if (selectedAd.getType() == Ad.AdType.CAR) {
-            a = "وسایل نقلیه";
+            CarAd carad = (CarAd) selectedAd;
+            // نمایش اطلاعات آگهی
+            name.setText(selectedAd.getName());
+            price.setText((selectedAd.getPrice()) + " تومان");
+            descriptionLabel.setText(selectedAd.getDescription());
+            milage.setText("کارکرد: " + carad.getMileage() + " کیلومتر");
+            productionage.setText("سال تولید: " + carad.getProductionage());
+            Accident.setText((carad.isHasAccident()) ? "تصادفی است!" : "تصادفی نیست");
+            daste.setText("آگهی ها/" + Ad.AdType.CAR.toString());
+
+        } else if (selectedAd.getType() == Ad.AdType.ANIMAL) {
+
+            AnimalAd animalad = (AnimalAd) selectedAd;
+            name.setText(animalad.getName());
+            price.setText(animalad.getPrice() + " تومان");
+            descriptionLabel.setText(animalad.getDescription());
+            milage.setText("نوع حیوان: " + animalad.getAnimalType());
+            productionage.setText("سن: " + animalad.getAge() + " سال");
+            Accident.setText((animalad.getIsVaccinated()) ? "واکسن زده" : "واکسن نزده!");
+            daste.setText("آگهی ها/" + Ad.AdType.ANIMAL.toString());
         }
-        daste.setText("آگهی ها/" + a);
     }
 
     // دکمه بازگشت

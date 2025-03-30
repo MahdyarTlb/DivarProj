@@ -48,7 +48,7 @@ public class LoginController {
         for (User user : users) {
             if (user.getUserName().equalsIgnoreCase(username) && user.getPassword().equals(userpass)) {
                 status.setText("ورود موفقیت‌آمیز!");
-                loadDashboard(username);  // ارسال نام کاربر به داشبورد
+                loadDashboard(username);
                 return;
             }
         }

@@ -129,7 +129,6 @@ public class showAdsController {
             yOffset += 120;
         }
     }
-
     // اعمال فیلترها
     @FXML
     private void applyFilters() {
@@ -146,7 +145,6 @@ public class showAdsController {
         // بروزرسانی لیست آگهی‌ها
         loadAds(filteredAds);
     }
-
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
         NavigationHelper.navigateToDashboard(event, loggedInUser, allAds);

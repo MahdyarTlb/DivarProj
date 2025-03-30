@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.editAd_AnimalController">
+    <children>
+        <Label layoutX="507.0" layoutY="16.0" text="عنوان جدید:" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="titleField" layoutX="315.0" layoutY="15.0" prefHeight="26.0" prefWidth="182.0"/>
+        <Label layoutX="507.0" layoutY="68.0" text="توضیحات جدید:" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <Label layoutX="507.0" layoutY="291.0" text="قیمت جدید:" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="priceField" layoutX="315.0" layoutY="289.0" prefHeight="26.0" prefWidth="182.0"/>
+        <Label layoutX="241.0" layoutY="16.0" text="تصویر جدید:" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="imagePathField" editable="false" layoutX="80.0" layoutY="15.0" prefHeight="26.0"
+                   prefWidth="153.0"/>
+        <Label layoutX="507.0" layoutY="346.0" text="نوع حیوان" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="animalType" layoutX="315.0" layoutY="345.0" prefHeight="45.0" prefWidth="182.0"/>
+        <Label layoutX="224.0" layoutY="271.0" text="سن حیوان" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="animalAge" layoutX="17.0" layoutY="269.0" prefHeight="26.0" prefWidth="200.0"/>
+        <Label layoutX="189.0" layoutY="320.0" text="وضعیت واکسن:" textFill="#6e6e6e">
+            <font>
+                <Font name="Kalameh SemiBold" size="12.0"/>
+            </font>
+        </Label>
+        <CheckBox fx:id="isVaccinated" layoutX="157.0" layoutY="322.0" mnemonicParsing="false" prefHeight="22.0"
+                  prefWidth="8.0" text="تصادفی" textAlignment="RIGHT">
+            <font>
+                <Font name="Kalameh Light" size="12.0"/>
+            </font>
+        </CheckBox>
+        <Button fx:id="submitButton" layoutX="34.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleSubmit"
+                prefHeight="30.0" prefWidth="93.0" styleClass="buttong" text="ویرایش آگهی" textFill="#333333">
+        </Button>
+        <Button fx:id="back" layoutX="134.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleBack"
+                prefHeight="31.0" prefWidth="78.0" text="بازگشت" textFill="#b7005b">
+            <font>
+                <Font name="Kalameh Regular" size="12.0"/>
+            </font>
+        </Button>
+        <Button layoutY="14.0" mnemonicParsing="false" onAction="#handleImageSelection" prefHeight="22.0"
+                prefWidth="78.0" text="انتخاب">
+        </Button>
+        <ImageView fx:id="imageView" fitHeight="156.0" fitWidth="266.0" layoutX="17.0" layoutY="72.0"
+                   pickOnBounds="true" preserveRatio="true"/>
+        <TextField fx:id="descriptionArea" alignment="TOP_RIGHT" layoutX="315.0" layoutY="80.0"
+                   nodeOrientation="RIGHT_TO_LEFT" prefHeight="190.0" prefWidth="182.0"/>
+    </children>
+</AnchorPane>

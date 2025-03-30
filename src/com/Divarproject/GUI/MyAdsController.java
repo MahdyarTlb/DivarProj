@@ -111,18 +111,28 @@ public class MyAdsController {
         Stage current = (Stage) ((Node) event.getSource()).getScene().getWindow();
         NavigationHelper.navigateToScene(current, root);
     }
-
     // دکمه ویرایش آگهی
     private void handleEditAd(Ad ad) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("editAd.fxml"));
-            Parent root = loader.load();
+            if(ad.getType() == Ad.AdType.CAR) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("editAd.fxml"));
+                Parent root = loader.load();
 
-            EditAdController ac = loader.getController();
-            ac.setAdAndUserData(ad, loggedInUser, allAds);
+                EditAdController ac = loader.getController();
+                ac.setAdAndUserData(ad, loggedInUser, allAds);
 
-            Stage current = (Stage) adsContainer.getScene().getWindow();
-            NavigationHelper.navigateToScene(current, root);
+                Stage current = (Stage) adsContainer.getScene().getWindow();
+                NavigationHelper.navigateToScene(current, root);
+            } else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("editAd_Animal.fxml"));
+                Parent root = loader.load();
+
+                editAd_AnimalController ec = loader.getController();
+                ec.setAdAndUserData(ad, loggedInUser, allAds);
+
+                Stage current = (Stage) adsContainer.getScene().getWindow();
+                NavigationHelper.navigateToScene(current, root);
+            }
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

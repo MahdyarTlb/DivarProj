@@ -82,7 +82,7 @@ public class NavigationHelper {
         try {
             FXMLLoader loader = new FXMLLoader(NavigationHelper.class.getResource("login.fxml"));
             Parent root = loader.load();
-            stage.setTitle("صفحه لاگین");
+            stage.setTitle("Divar");
             navigateToScene(stage, root);
         } catch (IOException e) {
             System.err.println("خطا در بارگذاری صفحه لاگین: " + e.getMessage());

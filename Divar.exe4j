@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exe4j version="9.0" transformSequenceNumber="3">
+  <directoryPresets config="D:/mahdyar/university/Ap/DivarProj" />
+  <application name="Divar" distributionSourceDir="D:/mahdyar/university/Ap/DivarProj" />
+  <executable name="Divaar" wrapperType="embed" executableMode="gui" />
+  <java mainClass="com.Divarproject.Register.AuthMenu" minVersion="6" maxVersion="14">
+    <classPath>
+      <archive location="D:/mahdyar/university/Ap/DivarProj/DivarProj.jar" />
+    </classPath>
+  </java>
+</exe4j>
