@@ -3,23 +3,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Divarproject.GUI.DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e2e2e" stylesheets="@../Styles.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Divarproject.GUI.DashboardController">
     <children>
         <Label layoutX="263.0" layoutY="26.0" style="-fx-font-size: 24px" styleClass="label-title" text="داشبورد">
         </Label>
-        <Button fx:id="add" layoutX="123.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleAddAd" prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="buttong" text="ثبت آگهی">
+        <Button fx:id="add" layoutX="123.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleAddAd"
+                prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="buttong" text="ثبت آگهی">
         </Button>
-        <Button fx:id="show" layoutX="311.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleShowAds" prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" text="نمایش آگهی ها">
+        <Button fx:id="show" layoutX="311.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleShowAds"
+                prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" text="نمایش آگهی ها">
         </Button>
-        <Button fx:id="exit" layoutX="225.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="31.0" prefWidth="152.0" styleClass="button-exit" text="خروج" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+        <Button fx:id="exit" layoutX="225.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleExit"
+                prefHeight="31.0" prefWidth="152.0" styleClass="button-exit" text="خروج" textAlignment="CENTER"
+                textOverrun="CENTER_WORD_ELLIPSIS">
         </Button>
-        <Label fx:id="User" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleLogout" prefHeight="24.0" prefWidth="288.0">
+        <Label fx:id="User" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleLogout" prefHeight="24.0"
+               prefWidth="288.0">
         </Label>
-        <Button fx:id="chat" layoutX="123.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleChatList" prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="button" text="چت ها">
+        <Button fx:id="chat" layoutX="123.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleChatList"
+                prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="button" text="چت ها">
         </Button>
-        <Button fx:id="myAds" layoutX="311.0" layoutY="208.0" mnemonicParsing="false" onAction="#handlemyAds" prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="buttong" text="آگهی های من">
+        <Button fx:id="myAds" layoutX="311.0" layoutY="208.0" mnemonicParsing="false" onAction="#handlemyAds"
+                prefHeight="80.0" prefWidth="170.0" style="-fx-font-size: 14px" styleClass="buttong" text="آگهی های من">
         </Button>
-        <Label fx:id="User1" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="467.0" layoutY="14.0" prefHeight="24.0" prefWidth="112.0" text="امتیاز شما: " textAlignment="RIGHT">
+        <Label fx:id="User1" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="467.0" layoutY="14.0"
+               prefHeight="24.0" prefWidth="112.0" text="امتیاز شما: " textAlignment="RIGHT">
         </Label>
     </children>
 </AnchorPane>

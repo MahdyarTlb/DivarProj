@@ -66,8 +66,8 @@ public class AdManager {
                         case CAR:
                             CarAd carAd = new CarAd(
                                     parts[1], parts[2], Integer.parseInt(parts[3]),
-                                    parts[4], owner, parts[6], Integer.parseInt(parts[7]),
-                                    Integer.parseInt(parts[8]), Boolean.parseBoolean(parts[9])
+                                    parts[4], owner, parts[6], Integer.parseInt(parts[8]),
+                                    Integer.parseInt(parts[7]), Boolean.parseBoolean(parts[9])
                             );
                             ads.add(carAd);
                             break;
